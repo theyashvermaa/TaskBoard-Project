@@ -3,6 +3,7 @@ import Navbar from './component/Navbar'
 import { FaEdit } from 'react-icons/fa'
 import { AiFillDelete } from 'react-icons/ai'
 import { v4 as uuidv4 } from 'uuid'
+import logo from './assets/TaskBoard-Logo.png'
 
 function App() {
   const [currentTab, setCurrentTab] = useState('home')
@@ -74,7 +75,13 @@ function App() {
     <div className="min-h-screen bg-[#FAF7F2] flex flex-col text-slate-800">
       <Navbar currentTab={currentTab} setCurrentTab={setCurrentTab} />
 
-      <div className="mx-auto my-6 rounded-2xl p-5 sm:p-7 bg-[#F5EFE6] min-h-[80vh] w-[92%] sm:w-[85%] md:w-[65%] lg:w-[45%] max-w-2xl shadow-md border border-[#E4DACB]">
+      <div
+        className="mx-auto my-6 rounded-2xl p-5 sm:p-7 bg-[#F5EFE6] min-h-[80vh] w-[92%] sm:w-[85%] md:w-[65%] lg:w-[45%] max-w-2xl shadow-md border border-[#E4DACB] bg-no-repeat bg-center bg-contain"
+        style={{
+          backgroundImage: `linear-gradient(rgba(245, 239, 230, 0.88), rgba(245, 239, 230, 0.88)), url(${logo})`
+        }}
+      >
+
         {currentTab === 'home' ? (
           <>
             <h1 className="font-bold text-center text-2xl sm:text-3xl text-blue-950 mb-2">
@@ -140,9 +147,8 @@ function App() {
                           className="w-4 h-4 cursor-pointer shrink-0 accent-blue-600"
                         />
                         <div
-                          className={`wrap-break-words text-slate-800 text-sm sm:text-base flex-1 min-w-0 ${
-                            item.isCompleted ? 'line-through text-slate-400' : ''
-                          }`}
+                          className={`wrap-break-words text-slate-800 text-sm sm:text-base flex-1 min-w-0 ${item.isCompleted ? 'line-through text-slate-400' : ''
+                            }`}
                         >
                           {item.todo}
                         </div>
@@ -195,9 +201,8 @@ function App() {
                       className="w-4 h-4 cursor-pointer shrink-0 accent-blue-600"
                     />
                     <div
-                      className={`wrap-break-words text-slate-800 text-sm sm:text-base flex-1 min-w-0 ${
-                        item.isCompleted ? 'line-through text-slate-400' : ''
-                      }`}
+                      className={`wrap-break-words text-slate-800 text-sm sm:text-base flex-1 min-w-0 ${item.isCompleted ? 'line-through text-slate-400' : ''
+                        }`}
                     >
                       {item.todo}
                     </div>
